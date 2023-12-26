@@ -115,12 +115,12 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('visitor.registration.register');
         }
-$user->setVerifiedAt(new DateTimeImmutable());
+$user->setVerifiedAt(new DateTimeImmutable()); 
 $em->persist($user);
 $em->flush();
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Votre adresse email a été vérifié. Veuillez vous connecter.');
 
-        return $this->redirectToRoute('visitor.welcome.index');
+        return $this->redirectToRoute('visitor.authentication.login');
     }
 }
